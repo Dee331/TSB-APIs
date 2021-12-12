@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "96b88cde-bf40-42bc-b220-7bf21bc1934c",
+		"name": "TSB_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Charity_List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check  St John is included in the list of charities\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Description).is.not.null;\r",
+							"    pm.expect(jsonData.Description).to.includes.toString(\"St John\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trademe.co.nz/v1/Charities.{{file_format}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trademe",
+						"co",
+						"nz"
+					],
+					"path": [
+						"v1",
+						"Charities.{{file_format}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsedCarsList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Used Car category name and unique identifier for the category\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.include.toString(\"Cars\");\r",
+							"    pm.expect(jsonData.number)==(pm.environment.get(\"number\"));\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trademe.co.nz/v1/Categories/UsedCars.{{file_format}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trademe",
+						"co",
+						"nz"
+					],
+					"path": [
+						"v1",
+						"Categories",
+						"UsedCars.{{file_format}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
