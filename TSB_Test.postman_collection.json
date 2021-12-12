@@ -33,13 +33,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.trademe.co.nz/v1/Charities.{{file_format}}",
-					"protocol": "https",
+					"raw": "{{URL}}/v1/Charities.{{file_format}}",
 					"host": [
-						"api",
-						"trademe",
-						"co",
-						"nz"
+						"{{URL}}"
 					],
 					"path": [
 						"v1",
@@ -76,13 +72,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.trademe.co.nz/v1/Categories/UsedCars.{{file_format}}",
-					"protocol": "https",
+					"raw": "{{URL}}/v1/Categories/UsedCars.{{file_format}}",
 					"host": [
-						"api",
-						"trademe",
-						"co",
-						"nz"
+						"{{URL}}"
 					],
 					"path": [
 						"v1",
